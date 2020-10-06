@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	<a class="navbar-brand" href="http://www.stjosephstechnology.ac.in/web/index.html" target="_blank">
+		<%= image_tag("sjit-logo.png", width: '61', height:'66', class:'d-inline-block align-top') %>
+    <%= link_to 'BROGRAMMERS', root_path , class: "nav-color"%>
+  </a>
+<ul class="navbar-nav">
+<% if current_user && current_user.active %>
+	<li class="nav-item"><div class="nav-link"><%= link_to 'Users', users_path, class: "nav-color"%></div></li>
+	<li class="nav-item"><div class="nav-link"><%= link_to 'Blogs', questions_path, class: "nav-color" %></div></li>
+	<li class="nav-item"><div class="nav-link"><%= link_to 'Profile', profile_view_user_path(current_user.id), class: "nav-color"%></div></li>
+	<div class="pull-right">
+	<li class="nav-item"><div class="nav-link"><%= "#{current_user.title}:" " #{current_user.full_name}" %>!</div></li>
+	<li class="nav-item"><div class="nav-link"><%= link_to 'Logout', logout_path, class: "nav-color", method: :delete %></div></li>
+	</div>
+<% else %>
+	<li class="nav-item"><div class="nav-link"><%= link_to 'Login', login_path, class: "nav-color"%></div></li> 
+	<li class="nav-item"><div class="nav-link"><%= link_to 'Sign up now',new_user_path, class: "nav-color" %></div></li>
+	<div class="pull-right">
+		<li class="nav-item"><div class="nav-link"><a href="http://www.stjosephstechnology.ac.in/web/it/index.php" class="nav-color" target="_blank">DEPARTMENT OF INFORMATION TECHNOLOGY</a></div></li> 
+	</div>
+<% end %>
+</ul>
+</nav>

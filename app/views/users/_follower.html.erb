@@ -1,0 +1,25 @@
+<br>
+<h3>Followers : <%= @follower.count %></h3>
+<% if @follower.present? %>
+<table class="table table-borderless"> 
+  <thead class="thead-dark">
+    <tr>   
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @follower.each do |follower| %>
+      <tr>  
+        <td><%= link_to "#{follower.full_name}", user_path(follower.id), class: "no-decoration" %></td> 
+       </tr>
+   	<% end %>
+  </tbody>
+</table>
+<% end %>
+<br>
+
+
+
+
+
+
